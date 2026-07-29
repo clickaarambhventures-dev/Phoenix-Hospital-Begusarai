@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export default function AboutPreview() {
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
   };
 
   const staggerContainer = {
@@ -72,7 +72,7 @@ export default function AboutPreview() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" as const }}
             className="lg:col-span-5 bg-white rounded-[24px] border border-slate-150 p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
             <h3 className="text-xl font-bold text-brand-blue tracking-tight border-b border-slate-100 pb-5 flex items-center gap-3">

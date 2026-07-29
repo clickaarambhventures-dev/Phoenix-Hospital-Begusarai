@@ -56,7 +56,7 @@ export default function Footer() {
               <motion.a 
                 href="tel:6287122293"
                 whileHover={{ y: -2, scale: 1.01 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+                transition={{ duration: 0.25, ease: "easeOut" as const }}
                 className="block p-6 bg-white/5 border border-white/10 rounded-[20px] hover:bg-white/10 transition-colors cursor-pointer group"
               >
                 <span className="block text-[10px] text-brand-red font-bold uppercase tracking-wider mb-2">24/7 Critical Trauma Dispatch</span>
@@ -67,7 +67,7 @@ export default function Footer() {
               <motion.a 
                 href="tel:9905936876"
                 whileHover={{ y: -2, scale: 1.01 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+                transition={{ duration: 0.25, ease: "easeOut" as const }}
                 className="block p-6 bg-white/5 border border-white/10 rounded-[20px] hover:bg-white/10 transition-colors cursor-pointer group"
               >
                 <span className="block text-[10px] text-white/60 font-bold uppercase tracking-wider mb-2">OPD Reception Consult Desk</span>

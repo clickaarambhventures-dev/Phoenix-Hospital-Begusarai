@@ -57,7 +57,7 @@ export default function Header() {
           <motion.a 
             href="tel:6287122293" 
             whileHover={{ scale: 1.02, y: -2 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            transition={{ duration: 0.25, ease: "easeOut" as const }}
             className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-brand-red text-white text-sm font-bold rounded-full shadow-sm hover:shadow-md transition-shadow"
           >
             Emergency: 6287122293

@@ -12,7 +12,7 @@ export default function HeroSection() {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
   };
 
   const container = {
@@ -118,15 +118,15 @@ export default function HeroSection() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.2 }}
               className="lg:col-span-6 relative w-full aspect-[4/3] flex justify-center lg:justify-end items-center mt-8 lg:mt-0 z-10"
             >
               <motion.div 
                 animate={{ y: [-8, 8, -8] }}
                 whileHover={{ rotate: 1 }}
                 transition={{ 
-                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 0.4, ease: "easeOut" }
+                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" as const },
+                  rotate: { duration: 0.4, ease: "easeOut" as const }
                 }}
                 className="relative w-full h-full max-w-[540px] lg:max-w-none rounded-[24px] border border-slate-200 bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)]"
               >

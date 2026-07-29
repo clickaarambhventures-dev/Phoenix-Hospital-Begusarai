@@ -1,6 +1,6 @@
 "use client";
 
-import React, from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const facilities = [
@@ -78,7 +78,7 @@ export default function Facilities() {
 
   const item = {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
   };
 
   return (
