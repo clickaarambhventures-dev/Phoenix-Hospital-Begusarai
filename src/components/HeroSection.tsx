@@ -30,7 +30,7 @@ export default function HeroSection() {
       <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-blue/5 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3" />
       <motion.div style={{ y: y2 }} className="absolute bottom-0 left-0 w-[24rem] h-[24rem] bg-brand-red/5 rounded-full blur-2xl -z-10 -translate-x-1/3 translate-y-1/3" />
 
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 border-b border-slate-150">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 border-b border-slate-150">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">

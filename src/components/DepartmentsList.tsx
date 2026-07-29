@@ -81,7 +81,7 @@ export default function DepartmentsList() {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-50/50 scroll-mt-20" id="departments">
+    <section className="py-16 lg:py-24 bg-slate-50/50 scroll-mt-20" id="departments">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         <div className="text-center max-w-2xl mx-auto space-y-4">
