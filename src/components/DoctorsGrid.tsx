@@ -9,7 +9,7 @@ const doctors = [
     avatar: "RKC",
     department: "Medicine",
     name: "Dr. Ravindra kumar Chaudhry",
-    qualification: "",
+    qualification: "MBBS",
     designation: "",
     experience: "Consultant",
     specialties: ["Specialist Care"],
@@ -207,6 +207,19 @@ const doctors = [
 
 export default function DoctorsGrid() {
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+
+  const uniqueDepartments = Array.from(new Set(doctors.map(d => d.department))).sort();
+
+  const filteredDoctors = doctors.filter(doctor => {
+    const searchLower = searchQuery.toLowerCase();
+    const matchesSearch = doctor.name.toLowerCase().includes(searchLower) || 
+                          doctor.qualification.toLowerCase().includes(searchLower) ||
+                          doctor.specialties.join(' ').toLowerCase().includes(searchLower);
+    const matchesDept = selectedDepartment === "" || doctor.department === selectedDepartment;
+    return matchesSearch && matchesDept;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -267,7 +280,7 @@ export default function DoctorsGrid() {
               Filter Specialists
             </h3>
             <div className="text-xs text-slate-500 font-medium bg-slate-50 px-3 py-1 rounded-full border border-slate-100">
-              Showing <span className="font-bold text-brand-blue">{doctors.length}</span> doctors
+              Showing <span className="font-bold text-brand-blue">{filteredDoctors.length}</span> doctors
             </div>
           </div>
           
@@ -279,28 +292,23 @@ export default function DoctorsGrid() {
               </svg>
               <input 
                 type="text" 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search specialists by name, credentials, or areas of expertise..." 
                 className="w-full pl-12 pr-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue text-sm font-medium transition-all shadow-sm"
               />
             </div>
             <div className="lg:col-span-5 relative group">
               <label className="sr-only">Select Department</label>
-              <select className="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue text-sm font-semibold text-slate-700 transition-all shadow-sm appearance-none">
+              <select 
+                value={selectedDepartment}
+                onChange={(e) => setSelectedDepartment(e.target.value)}
+                className="w-full px-4 py-3 bg-slate-50/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue text-sm font-semibold text-slate-700 transition-all shadow-sm appearance-none"
+              >
                 <option value="">-- All Departments --</option>
-                <option value="internal-medicine">Internal Medicine</option>
-                <option value="cardiology">Cardiology</option>
-                <option value="neurology">Neurology</option>
-                <option value="neurosurgery">Neurosurgery</option>
-                <option value="general-surgery">General Surgery</option>
-                <option value="orthopedics">Orthopedics</option>
-                <option value="obstetrics-gynecology">Obstetrics & Gynecology</option>
-                <option value="pediatrics-nicu">Pediatrics & Neonatal Care (NICU)</option>
-                <option value="dental">Dental Department</option>
-                <option value="ent">ENT</option>
-                <option value="gastroenterology">Gastroenterology</option>
-                <option value="diabetology">Diabetology</option>
-                <option value="physiotherapy">Physiotherapy & Rehab</option>
-                <option value="dietetics">Dietetics & Nutrition</option>
+                {uniqueDepartments.map(dept => (
+                  <option key={dept} value={dept}>{dept}</option>
+                ))}
               </select>
               <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path></svg>
@@ -317,9 +325,10 @@ export default function DoctorsGrid() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {doctors.map((doctor, index) => (
-            <motion.div 
-              key={index}
+          {filteredDoctors.length > 0 ? (
+            filteredDoctors.map((doctor, index) => (
+              <motion.div 
+                key={index}
               variants={item}
               className="group relative flex flex-col h-full bg-white rounded-[32px] border border-slate-200 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1 isolate p-2"
             >
@@ -419,8 +428,25 @@ export default function DoctorsGrid() {
                   </button>
                 </div>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-1 md:col-span-2 lg:col-span-3 py-24 flex flex-col items-center justify-center text-center space-y-4">
+              <div className="w-16 h-16 bg-white rounded-[20px] shadow-sm flex items-center justify-center text-slate-300 mb-4 border border-slate-100">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <h3 className="text-xl font-bold text-slate-700 tracking-tight">No specialists found</h3>
+              <p className="text-sm font-medium text-slate-500 max-w-sm leading-relaxed">
+                We couldn't find any specialists matching your current search criteria.
+              </p>
+              <button 
+                onClick={() => { setSearchQuery(''); setSelectedDepartment(''); }} 
+                className="mt-6 px-6 py-2.5 bg-brand-blue text-white text-sm font-bold rounded-xl shadow-[0_4px_14px_0_rgba(20,40,95,0.39)] hover:-translate-y-0.5 transition-all"
+              >
+                Clear Filters
+              </button>
+            </div>
+          )}
         </motion.div>
 
       </div>

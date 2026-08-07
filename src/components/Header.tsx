@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -24,27 +25,27 @@ export default function Header() {
   return (
     <motion.header 
       style={{ height: headerHeight }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-brand-blue flex items-center transition-shadow duration-250 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-sky-50 flex items-center transition-shadow duration-250 ease-out ${
         isScrolled ? 'shadow-lg shadow-brand-blue/10 border-b border-white/10' : 'border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between h-full">
-        <Link href="#home" className="flex items-center gap-3 focus:outline-none group">
-          <div className="p-2 bg-white text-brand-blue rounded-xl border border-transparent group-hover:border-white/20 transition-colors">
-            <svg aria-hidden="true" className="w-6 h-6" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
-              <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path>
-            </svg>
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-white">
-              Phoenix Hospital
-            </h1>
+        <Link href="/" className="flex items-center focus:outline-none group">
+          <div className="transition-transform duration-300 group-hover:scale-[1.02]">
+            <Image 
+              src="/logo.png" 
+              alt="Phoenix Hospital Logo" 
+              width={240} 
+              height={60} 
+              className="h-16 md:h-20 w-auto object-contain py-1"
+              priority
+            />
           </div>
         </Link>
         
         <nav className="hidden md:flex items-center gap-10 h-full">
           {['About', 'Departments', 'Doctors', 'Facilities', 'Contact'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="relative h-full flex items-center group text-sm font-semibold text-white/90 hover:text-white transition-colors">
+            <a key={item} href={`#${item.toLowerCase()}`} className="relative h-full flex items-center group text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors">
               {item}
               <motion.span 
                 className="absolute bottom-[28px] left-0 right-0 h-0.5 bg-brand-red origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"
@@ -65,7 +66,7 @@ export default function Header() {
           
           <button 
             aria-label="Toggle Menu" 
-            className="p-2 md:hidden focus:outline-none transition-colors text-white"
+            className="p-2 md:hidden focus:outline-none transition-colors text-slate-800"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg aria-hidden="true" className="w-6 h-6" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
@@ -83,10 +84,10 @@ export default function Header() {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-0 right-0 bg-brand-blue border-t border-white/10 shadow-lg px-4 py-6 flex flex-col items-center space-y-6"
+          className="md:hidden absolute top-full left-0 right-0 bg-sky-50 border-t border-sky-100 shadow-lg px-4 py-6 flex flex-col items-center space-y-6"
         >
           {['About', 'Departments', 'Doctors', 'Facilities', 'Contact'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-white/90 hover:text-white">
+            <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-slate-600 hover:text-brand-blue">
               {item}
             </a>
           ))}
