@@ -383,24 +383,6 @@ export default function DoctorsGrid() {
                 </div>
               </div>
 
-              {/* CENTER: Quick Info Chips */}
-              <div className="mt-2 grid grid-cols-2 gap-2">
-                <div className="bg-white rounded-[20px] p-3.5 border border-slate-150 shadow-sm flex flex-col justify-center relative overflow-hidden group/chip hover:border-brand-blue/30 transition-colors">
-                  <div className="absolute -right-2 -bottom-2 opacity-5 group-hover/chip:opacity-10 transition-opacity">
-                    <svg aria-hidden="true" className="w-12 h-12 text-brand-blue" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect height="14" rx="2" width="20" x="2" y="6"></rect></svg>
-                  </div>
-                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5 relative z-10">Experience</span>
-                  <span className="text-sm font-black text-slate-800 relative z-10">{doctor.experience}</span>
-                </div>
-                <div className="bg-white rounded-[20px] p-3.5 border border-slate-150 shadow-sm flex flex-col justify-center relative overflow-hidden group/chip hover:border-brand-blue/30 transition-colors">
-                  <div className="absolute -right-2 -bottom-2 opacity-5 group-hover/chip:opacity-10 transition-opacity">
-                    <svg aria-hidden="true" className="w-12 h-12 text-brand-blue" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path></svg>
-                  </div>
-                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5 relative z-10">Languages</span>
-                  <span className="text-xs sm:text-sm font-black text-slate-800 line-clamp-1 relative z-10">{doctor.languages}</span>
-                </div>
-              </div>
-
               {/* BOTTOM: Action Tile */}
               <div className="mt-2 bg-slate-900 rounded-[24px] p-5 shadow-md relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/30 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
