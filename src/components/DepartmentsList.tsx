@@ -81,8 +81,8 @@ export default function DepartmentsList() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-slate-50/50 scroll-mt-20" id="departments">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <section className="py-8 lg:py-12 bg-slate-50/50 scroll-mt-20" id="departments">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <div className="flex justify-center mb-4">

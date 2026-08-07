@@ -25,7 +25,7 @@ export default function RootLayout({
         <div id="root">
           <div className="min-h-screen bg-white text-slate-900 antialiased selection:bg-slate-900 selection:text-white flex flex-col justify-between">
             <Header />
-            <main className="flex-1 mt-[112px]">
+            <main className="flex-1 mt-[96px] lg:mt-[96px]">
               {children}
             </main>
             <Footer />
