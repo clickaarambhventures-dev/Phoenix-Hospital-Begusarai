@@ -30,7 +30,7 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between h-full">
-        <Link href="/" className="flex items-center focus:outline-none group">
+        <a href="/" className="flex items-center focus:outline-none group">
           <div className="transition-transform duration-300 group-hover:scale-[1.02]">
             <Image 
               src="/logo.png" 
@@ -41,7 +41,7 @@ export default function Header() {
               priority
             />
           </div>
-        </Link>
+        </a>
         
         <nav className="hidden md:flex items-center gap-10 h-full">
           {['About', 'Departments', 'Doctors', 'Facilities', 'Contact'].map((item) => (

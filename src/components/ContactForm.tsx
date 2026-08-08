@@ -152,7 +152,9 @@ export default function ContactForm() {
           >
             {/* The Form */}
             <motion.div variants={item} className="bg-white rounded-[24px] border border-slate-200 p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]">
-              <form className="space-y-8 text-left">
+              <form action="https://formsubmit.co/phoenixhospitalbeg@gmail.com" method="POST" className="space-y-8 text-left">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Appointment Request - Phoenix Hospital" />
                 <div className="border-b border-slate-100 pb-6">
                   <h3 className="font-extrabold text-2xl text-brand-blue tracking-tight">
                     Patient Feedback & Inquiry Form
@@ -170,7 +172,7 @@ export default function ContactForm() {
                       </label>
                       <input 
                         className="w-full px-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue focus:bg-white text-sm font-medium transition-all shadow-sm outline-none placeholder:text-slate-400" 
-                        name="name" 
+                        name="Patient Name" 
                         placeholder="Your name" 
                         required 
                         type="text" 
@@ -182,7 +184,7 @@ export default function ContactForm() {
                       </label>
                       <input 
                         className="w-full px-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue focus:bg-white text-sm font-medium transition-all shadow-sm outline-none placeholder:text-slate-400" 
-                        name="phone" 
+                        name="Mobile Number" 
                         placeholder="10-digit mobile number" 
                         required 
                         type="tel" 
@@ -197,7 +199,7 @@ export default function ContactForm() {
                       </label>
                       <input 
                         className="w-full px-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue focus:bg-white text-sm font-medium transition-all shadow-sm outline-none placeholder:text-slate-400" 
-                        name="email" 
+                        name="Email Address" 
                         placeholder="name@example.com" 
                         type="email" 
                       />
@@ -207,7 +209,7 @@ export default function ContactForm() {
                         Topic of Subject
                       </label>
                       <div className="relative">
-                        <select className="w-full px-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue focus:bg-white text-sm font-medium transition-all shadow-sm outline-none appearance-none cursor-pointer">
+                        <select name="Topic of Subject" className="w-full px-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue focus:bg-white text-sm font-medium transition-all shadow-sm outline-none appearance-none cursor-pointer">
                           <option value="General Inquiry">General Inquiry</option>
                           <option value="Appointment Help">Appointment Help</option>
                           <option value="Billing & Pricing">Billing & Pricing</option>
@@ -226,7 +228,7 @@ export default function ContactForm() {
                     </label>
                     <textarea 
                       className="w-full px-4 py-3.5 bg-slate-50/50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue focus:bg-white text-sm font-medium transition-all shadow-sm outline-none resize-none placeholder:text-slate-400" 
-                      name="message" 
+                      name="Message" 
                       placeholder="Write your detailed questions, complaints, or feedback here..." 
                       required 
                       rows={4}

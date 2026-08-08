@@ -402,12 +402,12 @@ export default function DoctorsGrid() {
                     ))}
                   </div>
 
-                  <button className="w-full py-3 bg-brand-blue hover:bg-white text-white hover:text-brand-blue font-bold text-sm rounded-xl transition-all shadow-[0_4px_14px_0_rgba(20,40,95,0.39)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.23)] hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                  <a href="#contact" className="w-full py-3 bg-brand-blue hover:bg-white text-white hover:text-brand-blue font-bold text-sm rounded-xl transition-all shadow-[0_4px_14px_0_rgba(20,40,95,0.39)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.23)] hover:-translate-y-0.5 flex items-center justify-center gap-2">
                     <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
                       <path d="m16 11 2 2 4-4"></path><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle>
                     </svg>
                     Book Consultation
-                  </button>
+                  </a>
                 </div>
               </div>
               </motion.div>
